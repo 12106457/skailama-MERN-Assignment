@@ -37,6 +37,8 @@ const Page = () => {
 
   const [fileData, setFileData] = useState<FileData[]>([]);
 
+  const [uploadFileOpen,setUploadFileOpen] = useState(false);
+
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("userData");
@@ -109,7 +111,7 @@ const Page = () => {
   };
 
   return (
-    <div className="w-full h-[calc(100vh-85px)] flex flex-col justify-start items-center gap-3 px-14 py-">
+    <div className="w-full h-[calc(100vh-120px)] flex flex-col justify-start items-center gap-3 px-14 py-">
       {/* <div className="w-full  flex justify-between items-center">
         <div className="flex items-center space-x-2 text-[#999999] font-bold">
           <HomeIcon className="w-4 h-4 " />
@@ -157,13 +159,14 @@ const Page = () => {
         )} 
         {
         fileData.length !== 0 &&(
-          <div className="flex-1 w-full bg-white shadow rounded-md mt-5 flex flex-col justify-start items-start px-14">
+          <div className="flex-1 w-full bg-white shadow rounded-md mt-5 flex flex-col justify-start items-start px-14 cursor-pointer">
             <FileTable fileData={fileData} getFiles={getFiles}/>
           </div>
         )}
 
+
       {isLoading && (
-        <div className="fixed inset-0 bg-gray-300 bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-black/30 flex justify-center items-center z-50">
           <Spinner loading={isLoading} />
         </div>
       )}

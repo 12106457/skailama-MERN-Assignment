@@ -113,7 +113,7 @@ const Page = () => {
 
       {/* Spinner */}
       {isLoading && (
-        <div className="fixed inset-0 bg-gray-300 bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-black/30 flex justify-center items-center z-50">
           <Spinner loading={isLoading} />
         </div>
       )}
