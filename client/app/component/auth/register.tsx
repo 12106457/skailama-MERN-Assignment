@@ -3,7 +3,7 @@
 import { roboto } from '@/app/fonts/fonts'
 import Image from 'next/image'
 import React, { useState } from 'react'
-
+import { toast } from 'react-hot-toast'
 const Register = ({ onChangeForm, changeForm }: any) => {
   const [name, setFullName] = useState('')
   const [email, setEmail] = useState('')
@@ -42,14 +42,16 @@ const Register = ({ onChangeForm, changeForm }: any) => {
       const result = await response.json();
   
       if (result.status) {
-        alert(result.message || 'Registered successfully!');
-        onChangeForm(!changeForm);  // Switch back to Login form
+        // alert(result.message || 'Registered successfully!');
+        toast.success('Registered successfully!');
+        onChangeForm(!changeForm); 
       } else {
-        // Check if error contains duplicate email error
+       
         if (result.error && result.error.includes('E11000')) {
           alert('This email is already registered. Please use a different email.');
         } else {
-          alert(result.message || 'Registration failed');
+          toast.error(result.message || 'Registration failed');
+          // alert(result.message || 'Registration failed');
         }
       }
     } catch (error) {

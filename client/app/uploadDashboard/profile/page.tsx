@@ -119,7 +119,7 @@ const Page = () => {
               className="p-1 border shadow rounded w-full bg-gray-100 text-gray-500"
             />
           </div>
-          <div className='flex justify-end items-center' onClick={()=>updateProfile()}>
+          <div className='flex justify-end items-center cursor-pointer' onClick={()=>updateProfile()}>
               <button className='text-white bg-[#211935] px-5 py-1 rounded mr-16'>Update</button>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { roboto } from '@/app/fonts/fonts';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast'
 
 const Login = ({ onChangeForm, changeForm }: any) => {
   const router = useRouter();
@@ -36,12 +37,13 @@ const Login = ({ onChangeForm, changeForm }: any) => {
       const data = await response.json();
 
       if (data.status === true) {
+        toast.success('Login successful!');
         localStorage.setItem('authToken', data.token);
         localStorage.setItem('userData', JSON.stringify(data.data));
         setProfile(data.data);
         router.push('/dashboard');
       } else {
-        alert(data.message || 'Login failed');
+        toast.error(data.message || 'Login failed');
       }
     } catch (error) {
       console.error('Login error:', error);

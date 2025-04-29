@@ -38,7 +38,7 @@ const Sidebar = ({setSelectedTab,selectedTab}:any) => {
   // Function to generate image URL based on user name
   const generateImageURL = (name: string | undefined) => {
     if (name) {
-      return `https://ui-avatars.com/api/?name=${name}&size=1080&background=5d4037&rounded=false&color=001F60`;
+      return `https://ui-avatars.com/api/?name=${name}&size=1080&background=5d4037&rounded=false&color=fff`;
     }
     return ''; // Fallback in case name is undefined
   };
