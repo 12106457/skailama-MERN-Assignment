@@ -13,13 +13,12 @@ connectDB();
 const app=express();
 app.use(express.json());
 app.use(
-    cors({
-      origin: true,
-      methods: ["POST", "GET", "PUT", "DELETE"],
-      credentials: true,
-    })
-  );
-
+  cors({
+    origin: 'https://skailama-assigment-client-fgkk9upf4-sais-projects-33f26e13.vercel.app/', // or your frontend domain
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 app.use("/auth",authRoute);
 app.use("/project",projectRoute);
 app.use("/file",fileRoute);
