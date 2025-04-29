@@ -132,7 +132,7 @@ const Page = () => {
         </div>
       </div> */}
 
-      <div className="flex flex-col ">
+      <div className="flex flex-col mt-5">
         <div className="text-3xl font-bold">Add Padcast</div>
         <UploadCard handleFileUpload={handleFileUpload} />
       </div>
